@@ -1,7 +1,5 @@
----
-layout: default
+
 title: Registro de Servicio
----
 
 # 📄 Registro de Uso de Servicio
 
