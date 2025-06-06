@@ -1,35 +1,33 @@
-# Central de Servicios
 ---
 layout: default
-title: Central de Servicios
+title: Registro de Servicio
 ---
 
-# 🛠 Central de Servicios
+# 📄 Registro de Uso de Servicio
 
-Bienvenido al sistema de registro y control de incidencias técnicas.
+Por favor, completa el siguiente formulario para registrar el uso del servicio.
 
-Completa el siguiente formulario para reportar una falla o problema técnico.
+<form id="registroForm" method="GET" action="https://script.google.com/macros/s/AKfycbzyVlduzCWVu-4VOAjL18rMH0W3BflTbAnSZwiN8t-ey1Sd1djPXALuNJntAyYvn1Eg/exec">
+  <label for="id">ID:</label><br>
+  <input type="text" id="id" name="id" readonly><br><br>
 
----
+  <label for="usuario">Usuario:</label><br>
+  <input type="text" id="usuario" name="usuario" required><br><br>
 
-## 📋 Formulario de Reporte de Falla
+  <label for="fechaHora">Fecha y Hora:</label><br>
+  <input type="text" id="fechaHora" name="fechaHora" readonly><br><br>
 
-<form method="POST" action="https://formspree.io/f/your-form-id">
-  <label for="nombre">Nombre:</label><br>
-  <input type="text" name="nombre" required><br><br>
-
-  <label for="correo">Correo electrónico:</label><br>
-  <input type="email" name="correo" required><br><br>
-
-  <label for="departamento">Departamento:</label><br>
-  <input type="text" name="departamento" required><br><br>
-
-  <label for="descripcion">Descripción de la falla:</label><br>
-  <textarea name="descripcion" rows="5" required></textarea><br><br>
-
-  <button type="submit">Enviar reporte</button>
+  <button type="submit">Enviar</button>
 </form>
 
----
+<script>
+  // Obtener ID desde la URL (si existe)
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById('id').value = params.get('id') || 'N/A';
 
-*Gracias por ayudarnos a mejorar la atención reportando cualquier incidente técnico.*
+  // Obtener fecha y hora actual
+  const fechaHora = new Date().toLocaleString('es-MX', {
+    timeZone: 'America/Mexico_City'
+  });
+  document.getElementById('fechaHora').value = fechaHora;
+</script>
